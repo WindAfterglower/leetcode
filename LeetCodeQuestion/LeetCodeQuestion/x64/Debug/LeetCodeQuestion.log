@@ -1,3 +1,4 @@
 ﻿  LeetCodeQuestion.cpp
-F:\ProgrammerProject\leetcode\LeetCodeQuestion\LeetCodeQuestion.cpp(21,14): warning C4101: “s”: 未引用的局部变量
-  LeetCodeQuestion.vcxproj -> F:\ProgrammerProject\leetcode\LeetCodeQuestion\x64\Debug\LeetCodeQuestion.exe
+F:\Code_Project\leet-code\LeetCodeQuestion\LeetCodeQuestion.cpp(35,27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\Code_Project\leet-code\LeetCodeQuestion\LeetCodeQuestion.cpp(46,27): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  LeetCodeQuestion.vcxproj -> F:\Code_Project\leet-code\LeetCodeQuestion\x64\Debug\LeetCodeQuestion.exe

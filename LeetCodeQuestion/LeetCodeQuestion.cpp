@@ -1,40 +1,60 @@
 ﻿#include <iostream>
 #include <string>
+#include<vector>
+#include<algorithm>
+#include<set>
 
 class Solution {
 public:
+
+    bool CalcChar(char val) {
+        return (val >= 97 && val <= 122) ? 1 : 0;
+    }
+
     int numDifferentIntegers(std::string word) {
-    std::string value = word;
     
+        std::vector<std::string> tempVec;
+        tempVec.reserve(1024);
+        std::string tempStr = "";
+
+        for (int i = 0; i <= word.length(); i++) {
+
+            if (CalcChar(word[i]) || i == word.length()) {
+                if (tempStr.length() != 0) {
+                    tempVec.push_back(tempStr);
+                }
+                tempStr = "";
+                word[i] = ' ';
+                continue;
+            }
+
+            tempStr += word[i];
+        }
+        for (int i = 0; i < tempVec.size();i++) {
+            int tempIndex = tempVec[i].find_first_not_of('0');
+           
+            tempVec[i].replace(0, tempIndex, (tempIndex != std::string::npos ?"":"0"));
+        }
         
-    
-    
-    return -1;
+        std::sort(tempVec.begin(), tempVec.end());
+        auto vx = std::unique(tempVec.begin(), tempVec.end());
+        tempVec.erase(vx, tempVec.end());
+
+       return tempVec.size();
+
     }
 };
 
-bool CalcChar(char val){
-    return (val >= 97 && val <= 122)?1:0;
-}
+
 
 int main(){
     Solution s;
-     //s.numDifferentIntegers("a1");
-    //const char* str = "a2b34p";
-    std::string str = "a1b01c001";
-     for(int i = 0;i < str.length();i++){
-        if(CalcChar(str[i]))str[i] = ' ';
-     }
-     int val = 0;
-     while(val <= 3){
-        std::string value = str.substr(str.find(' '));
-        std::cout<<value;
-      val++;
-     }
-     
+    std::string str = "000a";
+    std::cout<< s.numDifferentIntegers(str);
+    }
 
 
 
-}
+
 
 
